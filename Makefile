@@ -1,4 +1,4 @@
-.PHONY: up down reset logs build run test mysql slowlog
+.PHONY: up down reset logs build run seed test mysql slowlog
 
 up:            ## sobe mysql + api
 	docker compose up -d --build
@@ -17,6 +17,9 @@ build:
 
 run:           ## roda a api localmente contra o mysql do compose
 	go run ./cmd/api
+
+seed:          ## seed pequeno (Fase 0) no mysql do compose
+	go run ./cmd/seed
 
 test:
 	go test ./...
